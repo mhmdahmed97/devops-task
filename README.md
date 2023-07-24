@@ -1,7 +1,7 @@
 # Components of Task
-- Deploy infrastructure using Terraform in the `infrastructure resources`
-- Deploy colorization server 
-- Deploy transcoding layer
+- *Deploy infrastructure using Terraform in the* `infrastructure-resources` *directory*
+- *Deploy colorization server*
+- *Deploy transcoding layer*
 
 ## Steps to complete the task are provided below
 
@@ -19,7 +19,7 @@
 `
 
 ### 3. Create and publish docker images
-For the colorization-server:
+**_For the colorization-server:_**
 - Go to the root directory of `server-resources`: `cd server-resources`
 - Login to your DockerHub repository using: `docker login`
 - Build, tag, and push the image:
@@ -29,7 +29,7 @@ For the colorization-server:
  docker push <your-docker-repo>/colorization-server:latest
 `
 
-For the transcoder-server:
+**_For the transcoder-server:_**
 - Go to the root directory of `application-resources`: `cd application-resources`
 - Build, tag, and push the image:
 `
@@ -45,12 +45,12 @@ For the transcoder-server:
 
 
 ### 5. Deploy the kubernetes manifests
-For the colorization-server:
+**_For the colorization-server:_**
 - Go to the root directory of `server-resources`: `cd server-resources`
 - Replace the image field with your image name .i.e `<your-docker-repo>/colorization-server:latest` in the `colorization-server.yaml` file.
 - Deploy the colorization-server on the EKS cluster: `kubectl apply -f colorization-server.yaml`
 
-For the transcoder-server:
+**_For the transcoder-server:_**
 - Go to the root directory of `application-resources`: `cd application-resources`
 - Replace the image field with your image name .i.e `<your-docker-repo>/transcoder-server:latest` in the `transcoding-service.yaml` file.
 - Deploy the transcoder-server on the EKS cluster: `kubectl apply -f transcoding-service.yaml`
