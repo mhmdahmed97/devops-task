@@ -6,10 +6,7 @@
 ## Steps to complete the task are provided below
 
 ### 1. AWS CLI configuration
-- Open terminal and run the following command:
-\`\`\`bash
-aws configure --profile <name-of-profile>
-\`\`\`
+- Open terminal and run the following command: `aws configure --profile <name-of-profile>`
 - Follow the steps through by entering your `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY`.
 
 ### 2. Deploy infrastructure
