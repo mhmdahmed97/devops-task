@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package api;
+
+import "google/protobuf/timestamp.proto";
+option go_package = ".;main";
+
+service ImageManip {
+    rpc GetResponse(Request) returns (Response) {}
+}
+
+message Request {
+    string op = 1;
+    bytes image = 2;
+}
+
+message Response {
+    string Ip = 1;
+    google.protobuf.Timestamp created = 2;
+    bytes image = 3;
+}

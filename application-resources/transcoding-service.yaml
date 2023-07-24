@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: transcoding-service
+spec:
+  selector:
+    app: transcoding-server
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 3000
+  type: LoadBalancer
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: transcoding-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: transcoding-server
+  template:
+    metadata:
+      labels:
+        app: transcoding-server
+    spec:
+      containers:
+      - name: transcoding-server
+        image: osamasaqib1/transcoder-server:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
